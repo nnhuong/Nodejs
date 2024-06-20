@@ -10,9 +10,15 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date(),
       },
+      {
+        firstName: 'Nguyen',
+        lastName: 'Huong',
+        email: 'example@example.com',
+        createdAt: new Date(),
+        updatedAt: new Date(),}
     ]);
   },
   // down: (queryInterface, Sequelize) => {
-  //   return queryInterface.bulkDelete('Users', null, {});
+  //   return queryInterface.bulkDelete('User', null, {});
   // },
 };

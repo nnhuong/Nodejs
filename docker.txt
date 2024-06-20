@@ -47,7 +47,7 @@ Now we should edit this file to insert demo user to User table.
 Creating the first Seed"""
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Users', [
+    return queryInterface.bulkInsert('User', [
       {
         firstName: 'John',
         lastName: 'Doe',
@@ -58,7 +58,7 @@ module.exports = {
     ]);
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Users', null, {});
+    return queryInterface.bulkDelete('User', null, {});
   },
 };
 
@@ -71,6 +71,9 @@ KHỞI CHẠY DOCKER TỪ CONTAINER MỚI -> CONTAINER CÓ TRONG IMAGE -> IMAGE 
 --TÊN MYSQL -MẬT KHẨU-123456 -D -P PORT:3306 MYSQL: image
 
 lenh docker:  docker run --name mysql -e MYSQL_ROOT_PASSWORD=123456 -d -p 3306:3306 mysql
+
+Tạo và chạy các thành phần định nghĩa trong docker-compose.yml các dịch vụ, image, container, mạng, đĩa ...
+docker compose up -d
 
 KIỂM TRA CONTAINER C0 HOẠT ĐỘNG KHÔNG: 
 cmd -> docker ps -> hiể`n thị container đang chạy
