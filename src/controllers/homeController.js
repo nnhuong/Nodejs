@@ -1,5 +1,5 @@
 import db from '../models/index';
-
+import CRUDService from '../services/CRUDservice';
 
 let getHomePage = async (req, res) => {
     try{ 
@@ -14,22 +14,22 @@ let getHomePage = async (req, res) => {
     return res.render('test/about.ejs');
 }
 
-// object {
-//     key: ''
-//     value: ''
-// }
-
-let getAboutPage = async (req, res) => {
-    // Define your logic for the about page here
+let getAboutPage = (req, res) => {
     return res.render('test/about.ejs');
 }
 
-// const data = "Dữ liệu mẫu từ controller";
-// res.render('homepage', { data: data });
+let getCRUD = (req, res) => {
+    return res.render('crud.ejs');
+}
 
-
+let postCRUD = async (req, res) => {
+    let message = await CRUDService.createNewUser(req.body);
+    console.log(message)
+    return res.send('post CRUD from server');
+}
 module.exports = {
     getHomePage: getHomePage,
     getAboutPage: getAboutPage,
+    getCRUD: getCRUD,
+    postCRUD: postCRUD,
 }
-//export ra để sử dụng ở file khác
