@@ -1,12 +1,11 @@
 const { Sequelize } = require('sequelize');
 
 
-// Option 2: Passing parameters separately (sqlite)
 const sequelize = new Sequelize('hoidanit', 'root', '123456', {
     host: 'localhost',
     dialect: 'mysql',
     logging: false
-  });
+});
 
 let connectDB = async() => {
     try {
@@ -16,4 +15,4 @@ let connectDB = async() => {
         console.error('Unable to connect to the database:', error);
     }
 }
-module.exports = connectDB;
+module.exports = connectDB;''
