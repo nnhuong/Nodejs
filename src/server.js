@@ -1,12 +1,13 @@
 import express from "express";
 import bodyParser from "body-parser";
 import viewEngine from "./config/viewEngine";
-import initWebRoutes from './route/web'
-import connectDB from './config/connectDB'
+import initWebRoutes from './route/web';
+import connectDB from './config/connectDB';
+import cors from 'cors';
 require('dotenv').config();
 
-
-let app = express(); 
+let app = express();
+app.use(cors({origin: true, credentials: true}));
 
 //config app
 
@@ -17,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true}))
 viewEngine(app);
 initWebRoutes(app); 
 
-//Port === undefined => port = 6969
+
 
 connectDB();
 
@@ -26,4 +27,3 @@ app.listen(port, () => {
     //callback
     console.log("Backend Nodejs is runing on the port: " + port)
 })
-//chạy server ở port 6969

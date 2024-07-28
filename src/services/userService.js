@@ -16,6 +16,7 @@ let handleUserLogin = (email, password) => {
                 });
             if(user) {
                 let check = await bcrypt.compareSync(password, user.password);
+
                if(check) {
                     userData.errCode = 0;
                     userData.errMessage = 'OK';
@@ -25,13 +26,10 @@ let handleUserLogin = (email, password) => {
                 userData.errCode = 3;
                 userData.errMessage = `Wrong password`;
                }
-
                 } else {
                     userData.errCode = 2;
                     userData.errMessage = `User not found`                
                 }
- 
-
             }else {
                 //return error
             userData.errCode = 1;

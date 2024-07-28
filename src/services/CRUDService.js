@@ -39,6 +39,7 @@ let hashUserPassword = (password, salt) => {
         }
     });
 };
+
 let getAllUser = () => {
     return new Promise(async(resolve, reject) => {
         try{
@@ -59,7 +60,6 @@ let getUserInfoById = (userId) => {
                 where: {id: userId},
                 raw: true,
             })
-
             if(user){
                 resolve(user)
             }
@@ -91,12 +91,12 @@ let updateUserData = (data) => {
         } else{
             resolve();
         }
-    
     }catch(e) {
         console.log(e);
     }
    })
 }
+
 let  deleteUserById =(userId) => {
     return new Promise(async(resolve, reject) => {
         try{

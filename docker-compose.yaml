@@ -2,7 +2,7 @@ version: "3.1"
 
 services:
   mysql:
-    image: mysql:latest
+    image: mysql:8.0
     restart: always
     volumes:
       - ~/mysqlnodejs:/var/lib/mysql
@@ -12,15 +12,15 @@ services:
       MYSQL_ROOT_PASSWORD: "123456"  # Cấu hình mật khẩu cho root user
       MYSQL_DATABASE: "hoidanit"     # Tùy chọn: Cấu hình tên cơ sở dữ liệu mặc định
 
-  redis:
-    image: redis:latest
-    restart: always
-    ports:
-      - "16379:6379"
-    volumes:
-      - ~/.docker/data/redisnodejsconf:/redis.conf
-      - ~/.docker/data/redisnodejs:/var/lib/redis
-    command: redis-server --requirepass 1234
+  # redis:
+  #   image: redis:latest
+  #   restart: always
+  #   ports:
+  #     - "16379:6379"
+  #   volumes:
+  #     - ~/.docker/data/redisnodejsconf:/redis.conf
+  #     - ~/.docker/data/redisnodejs:/var/lib/redis
+  #   command: redis-server --requirepass 1234
 
 # Tạm thời tắt các service không cần thiết
 # dynamodb-admin:
