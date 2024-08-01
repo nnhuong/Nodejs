@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs';
 import db from '../models/index';
-import { raw } from 'body-parser';
+// import { raw } from 'body-parser';
 
 // Generate salt once and pass it to the hash function
 const salt = bcrypt.genSaltSync(10);
@@ -21,7 +21,9 @@ let createNewUser = async (data) => {
                 roleId: data.roleId,
                 positionId: data.positionId,
             });
+
             resolve('successfully create an user');
+            
         } catch (e) {
             reject(e);
         }
@@ -29,7 +31,7 @@ let createNewUser = async (data) => {
 };
 
 
-let hashUserPassword = (password, salt) => {
+let hashUserPassword = (password) => {
     return new Promise(async (resolve, reject) => {
         try {
             let hashPassword = await bcrypt.hashSync(password, salt);
